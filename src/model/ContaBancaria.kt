@@ -1,7 +1,9 @@
 package model
 
-abstract class ContaBancaria (var saldo : Double, var nConta : Int, var nCartao : Int)
+abstract class ContaBancaria (var saldo : Double, var nConta : Int, var nCartao : Int, var senha: Int)
 {
+    var cliente: ContaBancaria? = null
+
     abstract fun aplicarJuros()
 
     fun debitar(valor : Double)

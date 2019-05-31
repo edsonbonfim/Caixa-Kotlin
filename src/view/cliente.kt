@@ -1,12 +1,20 @@
 package view
 
-import model.Query
+import controller.ClienteController
+import model.Cliente
 
 fun main()
 {
-    val result = Query.select("SELECT * FROM cliente;")
+    println("Bem vindo ao Banco\n")
 
-    result!!.next()
+    print("Cartão: ")
+    val cartao = readLine()!!.toInt()
 
-    println(result.getString("nome"))
+    print("Senha: ")
+    val senha = readLine()!!.toString()
+
+    if (ClienteController.login())
+    {
+
+    }
 }
