@@ -13,4 +13,6 @@ abstract class ContaBancaria (var saldo : Double, var nConta : Int, var nCartao 
     {
         this.saldo += valor
     }
+
+    abstract fun getTipo() : Char
 }

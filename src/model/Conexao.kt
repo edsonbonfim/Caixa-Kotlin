@@ -20,9 +20,9 @@ class Conexao{
 
             try
             {
-                Class.forName("com.mysql.jdbc.Driver").newInstance()
+                Class.forName("com.mysql.jdbc.Driver")
 
-                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/", connectionProps)
+                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco", connectionProps)
                 return conn
             }
             catch (err : SQLException)

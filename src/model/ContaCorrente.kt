@@ -6,4 +6,6 @@ class ContaCorrente (saldo : Double, conta : Int, nCartao : Int) : ContaBancaria
     {
         super.saldo += super.saldo * 0.02
     }
+
+    override fun getTipo() : Char = 'C'
 }

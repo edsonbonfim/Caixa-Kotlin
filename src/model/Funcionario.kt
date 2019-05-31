@@ -1,16 +1,15 @@
 package model
 
-import controller.Banco
-
-class Funcionario (nome : String, senha : String, cpf : String) : Pessoa(nome, senha, cpf)
+open class Funcionario (nome : String, cpf : String, senha : String) : Pessoa(nome, cpf, senha)
 {
-    fun cadastrarCliente(nome: String, senha: String, cpf : String)
+    fun cadastrarCliente(cliente: Cliente)
     {
-        Banco.clientes.put(cpf, Cliente(nome, senha, cpf))
+        Query.query("INSERT INTO cliente (nome, senha, cpf) VALUES" +
+                " ('${cliente.nome}', '${cliente.senha}', '${cliente.cpf}')")
     }
 
     fun removerCliente(cpf: String)
     {
-        Banco.clientes.remove(cpf)
+        Query.query("DELETE FROM cliente WHERE cpf = '$cpf'")
     }
 }

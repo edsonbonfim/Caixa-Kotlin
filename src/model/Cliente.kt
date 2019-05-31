@@ -1,16 +1,15 @@
 package model
 
-class Cliente (nome : String, senha : String, cpf: String) : Pessoa(nome, senha, cpf)
+class Cliente (nome : String, cpf : String, senha: String) : Pessoa(nome, cpf, senha)
 {
-    var contas : HashMap<Int, ContaBancaria> = HashMap()
-
     fun addConta(conta : ContaBancaria)
     {
-        this.contas.put(conta.nConta, conta)
+        Query.query("INSERT INTO conta (nConta, nCartao, saldo, tipo)" +
+                "VALUES (${conta.nConta} , ${conta.nCartao}, ${conta.saldo}, '${conta.getTipo()}'")
     }
 
     fun removeConta (nConta : Int)
     {
-        this.contas.remove(nConta)
+        Query.query("DELETE FROM conta WHERE nConta = $nConta")
     }
 }

@@ -1,3 +1,3 @@
 package model
 
-abstract class Pessoa (var nome : String, var senha : String, var cpf : String)
+abstract class Pessoa (var nome : String, var cpf : String, var senha : String)
